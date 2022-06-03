@@ -35,8 +35,5 @@ namespace EarTrumpet.UI.Views
             }
         }
 
-        private void UpdateIgnoredList(object sender, EventArgs e) {
-
-        }
     }
 }
