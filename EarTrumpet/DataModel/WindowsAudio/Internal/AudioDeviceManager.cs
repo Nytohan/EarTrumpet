@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using System.Diagnostics;
 
 namespace EarTrumpet.DataModel.WindowsAudio.Internal
 {
@@ -181,6 +182,7 @@ namespace EarTrumpet.DataModel.WindowsAudio.Internal
 
             if (!TryFind(pwstrDeviceId, out IAudioDevice unused))
             {
+                
                 try
                 {
                     var device = _enumerator.GetDevice(pwstrDeviceId);
@@ -300,6 +302,20 @@ namespace EarTrumpet.DataModel.WindowsAudio.Internal
 
         private void Add(IAudioDevice device)
         {
+            AppSettings settings = new AppSettings();
+            string IgnoredList = settings.IgnoredList;
+            String[] IgnoredListItems = IgnoredList.Split(',');
+
+            TraceLine($"=====NEW DEVICE?!=====\n {device.DisplayName}\n\n");
+            foreach (string IgnoredItem in IgnoredListItems)
+            {
+                string cleanFilter = IgnoredItem.Trim().ToLower();
+                if (cleanFilter.Length > 0 && device.DisplayName.ToLower().Contains(cleanFilter)) {
+                    TraceLine($"=====IGNORING DEVICE=====\n {device.DisplayName} because {IgnoredItem} was found.\n\n");
+                    return;
+                }
+            }
+
             if (_deviceMap.TryAdd(device.Id, device))
             {
                 _devices.Add(device);

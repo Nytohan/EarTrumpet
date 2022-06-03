@@ -7,7 +7,9 @@ namespace EarTrumpet.UI.ViewModels
         private static readonly string s_hotkeyNoneText = new HotkeyData().ToString();
 
         public HotkeyViewModel OpenFlyoutHotkey { get; }
+
         public string DefaultHotKey => s_hotkeyNoneText;
+
 
         public HotkeyViewModel OpenMixerHotkey { get; }
         public string DefaultMixerHotKey => s_hotkeyNoneText;

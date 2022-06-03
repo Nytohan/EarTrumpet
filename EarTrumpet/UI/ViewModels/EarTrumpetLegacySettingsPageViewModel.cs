@@ -10,6 +10,9 @@ namespace EarTrumpet.UI.ViewModels
             set => _settings.UseLegacyIcon = value;
         }
 
+        public string IgnoredList { get => _settings.IgnoredList; set => _settings.IgnoredList = value; }
+
+
         private readonly AppSettings _settings;
 
         public EarTrumpetLegacySettingsPageViewModel(AppSettings settings) : base(null)
@@ -17,6 +20,7 @@ namespace EarTrumpet.UI.ViewModels
             _settings = settings;
             Title = Properties.Resources.LegacySettingsPageText;
             Glyph = "\xE825";
+
         }
     }
 }

@@ -34,5 +34,10 @@ namespace EarTrumpet.UI.Views
                 WindowSizeHelper.RestrictMaximizedSizeToWorkArea(this);
             }
         }
+
+        private void UpdateIgnoredList(object sender, EventArgs e) {
+            Console.WriteLine(sender.ToString());
+            Console.WriteLine(e.ToString());
+        }
     }
 }

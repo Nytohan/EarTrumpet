@@ -17,7 +17,16 @@ namespace EarTrumpet
 
         private ISettingsBag _settings = StorageFactory.GetSettings();
 
-        public void RegisterHotkeys()
+        public string IgnoredList
+        {
+            get {
+                if (_settings.Get("IgnoredList", "") == null) _settings.Set("IgnoredList", "");
+                return _settings.Get("IgnoredList", "");
+            }
+            set => _settings.Set("IgnoredList", value);
+        }
+
+    public void RegisterHotkeys()
         {
             HotkeyManager.Current.Register(FlyoutHotkey);
             HotkeyManager.Current.Register(MixerHotkey);
@@ -54,6 +63,7 @@ namespace EarTrumpet
                 }
             };
         }
+
 
         public HotkeyData FlyoutHotkey
         {

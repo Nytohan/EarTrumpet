@@ -231,6 +231,9 @@
   <data name="LegacySettingsPageText" xml:space="preserve">
     <value>Legacy settings</value>
   </data>
+  <data name="IgnoredDevicesLabelText" xml:space="preserve">
+    <value>Ignored Devices</value>
+  </data>
   <data name="PublisherText" xml:space="preserve">
     <value>Publisher:</value>
   </data>
