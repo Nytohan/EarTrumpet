@@ -36,8 +36,7 @@ namespace EarTrumpet.UI.Views
         }
 
         private void UpdateIgnoredList(object sender, EventArgs e) {
-            Console.WriteLine(sender.ToString());
-            Console.WriteLine(e.ToString());
+
         }
     }
 }
